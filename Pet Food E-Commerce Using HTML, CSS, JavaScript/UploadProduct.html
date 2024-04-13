@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFOOD</title>
+    <link rel="stylesheet" href="contain/css/boxicons.min.css">
+    <link rel="stylesheet" href="contain/css/fonts.css">
+    <link rel="stylesheet" href="contain/css/style.css">
+    <style>
+        body {
+            margin-top: 80px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="nav container">
+            <a href="index.html" class="logo"><span>P</span>FOOD</a>
+            <nav class="navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="UploadProduct.html">UploadProduct</a></li>
+                    <li><a href="InputStorage.html">InputStorage</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+                </ul>
+            </nav>
+            <i class='bx bx-shopping-bag' id="cart-icon">
+                <span class="cart-number">0</span>
+            </i>
+            <div class="cart">
+                <h2 class="cart-title">Your Cart</h2>
+                <div class="cart-content"></div>
+                <div class="total">
+                    <div class="total-title">Total</div>
+                    <div class="total-price">$0</div>
+                </div>
+                <button type="button" class="btn-buy">Buy Now</button>
+                <i class='bx bx-x' id="cart-close"></i>
+            </div>
+        </div>
+    </header>
+
+    <div>
+        <section class="product-submission container">
+            <h2 class="section-title">Upload a New Product</h2>
+            <form id="productForm">
+                <label for="title">Product Title:</label>
+                <input type="text" id="title" name="title" required>
+                <label for="price">Product Price:</label>
+                <input type="number" id="price" name="price" required>
+                <label for="image">Product Image:</label>
+                <input type="file" id="image" name="image" accept="image/*" required>
+                <img id="previewImage" alt="Preview" style="display:none; max-width: 100%; margin-top: 10px;">
+                <button type="button" onclick="submitProduct()">Submit Product</button>
+            </form>
+        </section>
+        <section class="new-products container">
+            <h2 class="section-title">Recent Upload Products</h2>
+            <div id="newProducts"></div>
+        </section>
+    </div>
+
+    <section class="shop container">
+        <h2 class="section-title">Shop Products</h2>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Search products...">
+            <button type="button" onclick="searchProducts()">Search</button>
+        </div>
+        <div class="shop-content">
+            <div class="product-box">
+                <img src="contain/img/product1.jpg" alt="" class="product-img">
+                <h2 class="product-title">DOG 1</h2>
+                <span class="product-price">$79.5</span>
+                <i class='bx bx-shopping-bag add-cart'></i>
+            </div>
+            <div class="product-box">
+                <img src="contain/img/product2.jpg" alt="" class="product-img">
+                <h2 class="product-title">FISH 1</h2>
+                <span class="product-price">$59.5</span>
+                <i class='bx bx-shopping-bag add-cart'></i>
+            </div>
+            <div class="product-box">
+                <img src="contain/img/product3.jpg" alt="" class="product-img">
+                <h2 class="product-title">FISH 2</h2>
+                <span class="product-price">$29.5</span>
+                <i class='bx bx-shopping-bag add-cart'></i>
+            </div>
+            <div class="product-box">
+                <img src="contain/img/product4.jpg" alt="" class="product-img">
+                <h2 class="product-title">CAT 1</h2>
+                <span class="product-price">$105</span>
+                <i class='bx bx-shopping-bag add-cart'></i>
+            </div>
+            <div class="product-box">
+                <img src="contain/img/product5.jpg" alt="" class="product-img">
+                <h2 class="product-title">DOG 2</h2>
+                <span class="product-price">$95</span>
+                <i class='bx bx-shopping-bag add-cart'></i>
+            </div>
+            <div class="product-box">
+                <img src="contain/img/product6.jpg" alt="" class="product-img">
+                <h2 class="product-title">CAT 2</h2>
+                <span class="product-price">$1400</span>
+                <i class='bx bx-shopping-bag add-cart'></i>
+            </div>
+            <div class="product-box">
+                <img src="contain/img/product7.jpg" alt="" class="product-img">
+                <h2 class="product-title">DOG 3</h2>
+                <span class="product-price">$1700</span>
+                <i class='bx bx-shopping-bag add-cart'></i>
+            </div>
+            <div class="product-box">
+                <img src="contain/img/product8.jpg" alt="" class="product-img">
+                <h2 class="product-title">DOG 4</h2>
+                <span class="product-price">$110.5</span>
+                <i class='bx bx-shopping-bag add-cart'></i>
+            </div>
+        </div>
+    </section>
+
+    <div class="custom-footer">
+        <footer>
+            <div class="container">
+                <div class="footer-section">
+                    <h2>About Us</h2>
+                    <p>We’re here to stick by your side through the highs, lows and in-betweens of pet parenthood, with everything you and your pet need for a happy and healthy life.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h2>Quick Links</h2>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="UploadProduct.html">UploadProduct</a></li>
+                        <li><a href="InputStorage.html">InputStorage</a></li>
+                        <li><a href="Contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h2>Connect with Us</h2>
+                    <div class="social-icons">
+                        <a href="#" target="_blank">Facebook</a>
+                        <a href="#" target="_blank">Twitter</a>
+                        <a href="#" target="_blank">Instagram</a>
+                    </div>
+                </div>
+            </div>
+            <div class="credit-and-payment">
+                <div class="credit">
+                    <p>&copy; 2023 OptimisticNurul</p>
+                </div>
+                <img src="./contain/img/payment.png" alt="Payment Options" class="payment-img">
+            </div>
+        </footer>
+    </div>
+
+    <script src="contain/js/main.js"></script>
+</body>
+
+</html>

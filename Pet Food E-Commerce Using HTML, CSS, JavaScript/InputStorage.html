@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Storage Examples</title>
+    <link rel="stylesheet" href="contain/css/style.css">
+    <link rel="stylesheet" href="contain/css/boxicons.min.css">
+    <link rel="stylesheet" href="contain/css/fonts.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            display: flex;
+            flex-direction: column;
+            margin-top: 100px;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .custom-footer {
+            width: 100%;
+            margin-top: 20px;
+            color: #fff;
+            box-sizing: border-box;
+        }
+
+        section {
+            width: 100%;
+            padding: 20px;
+            margin-bottom: 20px;
+            color: #333;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        section:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        input {
+            margin-bottom: 10px;
+            padding: 8px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 8px;
+            background: linear-gradient(135deg, #fff, #ddd);
+            color: #333;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #ddd, #fff);
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+            color: #333;
+        }
+
+        th {
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: #fff;
+        }
+
+        tbody {
+            background-color: #fff;
+        }
+
+        #localStorage {
+            background: linear-gradient(135deg, #bdc3c7, #2c3e50);
+        }
+
+        #sessionStorage {
+            background: linear-gradient(135deg, #6b6b83, #3b8d99);
+        }
+
+        #indexedDB {
+            background: linear-gradient(135deg, #6c5b7b, #c06c84);
+        }
+
+        #webSQL {
+            background: linear-gradient(135deg, #ADA996, #EAEAEA);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="nav container">
+            <a href="index.html" class="logo"><span>P</span>FOOD</a>
+            <nav class="navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="UploadProduct.html">UploadProduct</a></li>
+                    <li><a href="InputStorage.html">InputStorage</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div id="container">
+
+        <section id="localStorage">
+            <h2>Local Storage</h2>
+            <input type="text" id="localStorageFirstName" placeholder="First Name">
+            <input type="text" id="localStorageLastName" placeholder="Last Name">
+            <input type="email" id="localStorageEmail" placeholder="Email">
+            <input type="tel" id="localStoragePhone" placeholder="Phone">
+            <button onclick="addToStorage('localStorage')">Save</button>
+            <table id="localStorageTable">
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+
+        <section id="sessionStorage">
+            <h2>Session Storage</h2>
+            <input type="text" id="sessionStorageFirstName" placeholder="First Name">
+            <input type="text" id="sessionStorageLastName" placeholder="Last Name">
+            <input type="email" id="sessionStorageEmail" placeholder="Email">
+            <input type="tel" id="sessionStoragePhone" placeholder="Phone">
+            <button onclick="addToStorage('sessionStorage')">Save</button>
+            <table id="sessionStorageTable">
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+
+        <section id="indexedDB">
+            <h2>IndexedDB</h2>
+            <input type="text" id="indexedDBFirstName" placeholder="First Name">
+            <input type="text" id="indexedDBLastName" placeholder="Last Name">
+            <input type="email" id="indexedDBEmail" placeholder="Email">
+            <input type="tel" id="indexedDBPhone" placeholder="Phone">
+            <button onclick="addToStorage('indexedDB')">Save</button>
+            <table id="indexedDBTable">
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+
+        <section id="webSQL">
+            <h2>Web SQL</h2>
+            <input type="text" id="webSQLFirstName" placeholder="First Name">
+            <input type="text" id="webSQLLastName" placeholder="Last Name">
+            <input type="email" id="webSQLEmail" placeholder="Email">
+            <input type="tel" id="webSQLPhone" placeholder="Phone">
+            <button onclick="addToStorage('webSQL')">Save</button>
+            <table id="webSQLTable">
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+
+    </div>
+
+    <div class="custom-footer">
+        <footer>
+          <div class="container">
+            <div class="footer-section">
+              <h2>About Us</h2>
+              <p>We’re here to stick by your side through the highs, lows and in-betweens of pet parenthood, with everything you and your pet need for a happy and healthy life.
+              </p>
+            </div>
+    
+            <div class="footer-section">
+              <h2>Quick Links</h2>
+              <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="UploadProduct.html">UploadProduct</a></li>
+                <li><a href="InputStorage.html">InputStorage</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+              </ul>
+            </div>
+    
+            <div class="footer-section">
+              <h2>Connect with Us</h2>
+              <div class="social-icons">
+                <a href="#" target="_blank">Facebook</a>
+                <a href="#" target="_blank">Twitter</a>
+                <a href="#" target="_blank">Instagram</a>
+              </div>
+            </div>
+          </div>
+    
+          <div class="credit-and-payment">
+            <div class="credit">
+              <p>&copy; 2023 OptimisticNurul</p>
+            </div>
+            <img src="./contain/img/payment.png" alt="Payment Options" class="payment-img">
+          </div>
+        </footer>
+      </div>
+  
+      <script src="contain/js/main.js"></script>
+
+</body>
+</html>
